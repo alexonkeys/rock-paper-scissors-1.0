@@ -10,6 +10,7 @@ function getComputerChoice (){
 }
 
 function playRound(playerSelection,computerSelection){
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (playerSelection === computerSelection) {
         return "You tied!";
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
