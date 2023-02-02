@@ -48,6 +48,13 @@ function game(){
         score += playRound(window.prompt(),getComputerChoice());
     }
     console.log(score);
+    if (score > 0) {
+        console.log ("Congrats! You won the whole game :)");
+    } else if (score < 0) {
+        console.log ("You lost the game... Better luck next time :(");
+    } else if (score === 0) {
+        console.log("You tied the whole game! Some luck, huh?");
+    }
 
 }
 
