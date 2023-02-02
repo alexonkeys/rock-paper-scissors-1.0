@@ -12,21 +12,29 @@ function getComputerChoice (){
 function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (playerSelection === computerSelection) {
-        return "You tied!";
+        return 0;
+        console.log("You tied!");
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        return "You lose! Paper beats rock.";
+        return -1;
+        console.log("You lose! Paper beats rock.");
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        return "You win! Rock beats scissors.";
+        return 1;
+        console.log("You win! Rock beats scissors.");
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        return "You win! Paper beats rock.";
+        return 1;
+        console.log("You win! Paper beats rock.");
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        return "You lose! Scissors beat paper.";
+        return -1;
+        console.log("You lose! Scissors beat paper.");
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        return "You lose! Rock beats scissors.";
+        return -1;
+        console.log("You lose! Rock beats scissors.");
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        return "You win! Scissors beat paper.";
+        return 1;
+        console.log("You win! Scissors beat paper.");
     } else {
-        return "That wasn't one of the options...";
+        return 0;
+        console.log("That wasn't one of the options...");
     }
 }
 
@@ -34,6 +42,13 @@ const playerSelection = "Rock";
 const computerSelection = getComputerChoice ();
 const roundResult = playRound(playerSelection,computerSelection);
 
+function game(){
+    let score = 0
+    for (let i = 0; i < 5; i++) {
+        score += playRound(window.prompt(),getComputerChoice());
+    }
+    console.log(score);
 
+}
 
 
