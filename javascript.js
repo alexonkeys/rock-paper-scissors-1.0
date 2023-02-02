@@ -12,29 +12,29 @@ function getComputerChoice (){
 function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (playerSelection === computerSelection) {
-        return 0;
         console.log("You tied!");
-    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        return -1;
-        console.log("You lose! Paper beats rock.");
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        return 1;
-        console.log("You win! Rock beats scissors.");
-    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        return 1;
-        console.log("You win! Paper beats rock.");
-    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        return -1;
-        console.log("You lose! Scissors beat paper.");
-    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        return -1;
-        console.log("You lose! Rock beats scissors.");
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        return 1;
-        console.log("You win! Scissors beat paper.");
-    } else {
         return 0;
+    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+        console.log("You lose! Paper beats rock.");
+        return -1;
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        console.log("You win! Rock beats scissors.");
+        return 1;
+    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+        console.log("You win! Paper beats rock.");
+        return 1;
+    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        console.log("You lose! Scissors beat paper.");
+        return -1;
+    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+        console.log("You lose! Rock beats scissors.");
+        return -1;
+    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+        console.log("You win! Scissors beat paper.");
+        return 1;
+    } else {
         console.log("That wasn't one of the options...");
+        return 0;
     }
 }
 
@@ -47,15 +47,14 @@ function game(){
     for (let i = 0; i < 5; i++) {
         score += playRound(window.prompt(),getComputerChoice());
     }
-    console.log(score);
-    if (score > 0) {
-        console.log ("Congrats! You won the whole game :)");
-    } else if (score < 0) {
-        console.log ("You lost the game... Better luck next time :(");
-    } else if (score === 0) {
-        console.log("You tied the whole game! Some luck, huh?");
-    }
 
+    if (score > 0) {
+        console.log (`Your final score is ${score}. Congrats! You won the game :)`);
+    } else if (score < 0) {
+        console.log (`Your final score is ${score}. You lost the game... Better luck next time :(`);
+    } else if (score === 0) {
+        console.log(`Your final score is ${score}. You tied the game! Some luck, huh?`);
+    }
 }
 
 
