@@ -40,7 +40,6 @@ function playRound(playerSelection,computerSelection){
 
 const playerSelection = "Rock";
 const computerSelection = getComputerChoice ();
-const roundResult = playRound(playerSelection,computerSelection);
 
 function game(){
     let score = 0
