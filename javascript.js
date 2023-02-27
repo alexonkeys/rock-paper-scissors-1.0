@@ -41,7 +41,7 @@ function playRound(playerSelection,computerSelection){
 const playerSelection = "Rock";
 const computerSelection = getComputerChoice ();
 
-function game(){
+/* function game(){
     let score = 0
     for (let i = 0; i < 5; i++) {
         score += playRound(window.prompt(),getComputerChoice());
@@ -54,6 +54,6 @@ function game(){
     } else if (score === 0) {
         console.log(`Your final score is ${score}. You tied the game! Some luck, huh?`);
     }
-}
+} */
 
 
