@@ -9,37 +9,43 @@ function getComputerChoice (){
         }
 }
 
+
+let result = document.querySelector('.result');
+result.textContent = `Hello! Welcome to Rock, Paper, Scissors!`;
+
 function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (playerSelection === computerSelection) {
-        console.log("You tied!");
+        result.textContent = "You tied!";
         return 0;
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        console.log("You lose! Paper beats rock.");
+        result.textContent = "You lose! Paper beats rock.";
         return -1;
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        console.log("You win! Rock beats scissors.");
+        result.textContent = "You win! Rock beats scissors.";
         return 1;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        console.log("You win! Paper beats rock.");
+        result.textContent = "You win! Paper beats rock.";
         return 1;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        console.log("You lose! Scissors beat paper.");
+        result.textContent = "You lose! Scissors beat paper.";
         return -1;
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        console.log("You lose! Rock beats scissors.");
+        result.textContent = "You lose! Rock beats scissors.";
         return -1;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        console.log("You win! Scissors beat paper.");
+        result.textContent = "You win! Scissors beat paper.";
         return 1;
     } else {
-        console.log("That wasn't one of the options...");
+        result.textContent = "That wasn't one of the options...";
         return 0;
     }
 }
 
 const playerSelection = "Rock";
 const computerSelection = getComputerChoice ();
+
+
 
 const rockButton = document.querySelector('.rock-button');
 rockButton.addEventListener('click',()=>{
