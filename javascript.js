@@ -10,34 +10,40 @@ function getComputerChoice (){
 }
 
 
-let result = document.querySelector('.result');
-result.textContent = `Hello! Welcome to Rock, Paper, Scissors!`;
+let roundResult = document.querySelector('.round-result');
+roundResult.textContent = `Hello! Welcome to Rock, Paper, Scissors!`;
+
+let gameScore = document.querySelector('#game-score');
+
+if (rockButton.addEventListener)
+gameScore.textContent = `Hello! Welcome to Rock, Paper, Scissors!`;
+
 
 function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (playerSelection === computerSelection) {
-        result.textContent = "You tied!";
+        roundResult.textContent = "You tied!";
         return 0;
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        result.textContent = "You lose! Paper beats rock.";
+        roundResult.textContent = "You lose! Paper beats rock.";
         return -1;
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        result.textContent = "You win! Rock beats scissors.";
+        roundResult.textContent = "You win! Rock beats scissors.";
         return 1;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        result.textContent = "You win! Paper beats rock.";
+        roundResult.textContent = "You win! Paper beats rock.";
         return 1;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        result.textContent = "You lose! Scissors beat paper.";
+        roundResult.textContent = "You lose! Scissors beat paper.";
         return -1;
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        result.textContent = "You lose! Rock beats scissors.";
+        roundResult.textContent = "You lose! Rock beats scissors.";
         return -1;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        result.textContent = "You win! Scissors beat paper.";
+        roundResult.textContent = "You win! Scissors beat paper.";
         return 1;
     } else {
-        result.textContent = "That wasn't one of the options...";
+        roundResult.textContent = "That wasn't one of the options...";
         return 0;
     }
 }
