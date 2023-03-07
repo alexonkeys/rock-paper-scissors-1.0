@@ -23,15 +23,8 @@ let gameScore = document.querySelector('#game-score');
 
 function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    if (humanScore === 5){
-        gameScore.textContent = `Humans triumph over the machines. Final score: ${humanScore} to ${computerScore};`
-        humanScore = 0;
-        computerScore = 0;
-    } else if (computerScore === 5) {
-        gameScore.textContent = `The computers have triumphed over the humans. Final score: ${humanScore} to ${computerScore}`;
-        humanScore = 0;
-        computerScore = 0;
-    } else if (playerSelection === computerSelection) {
+   
+    if (playerSelection === computerSelection) {
         roundResult.textContent = "You tied!";
         gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
@@ -61,7 +54,16 @@ function playRound(playerSelection,computerSelection){
     } else {
         roundResult.textContent = "That wasn't one of the options...";
         gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+    }
 
+    if (humanScore === 5){
+        gameScore.textContent = `Humans triumph over the machines. Final score: ${humanScore} to ${computerScore}`;
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        gameScore.textContent = `The computers have triumphed over the humans. Final score: ${humanScore} to ${computerScore}`;
+        humanScore = 0;
+        computerScore = 0;
     }
 }
 
