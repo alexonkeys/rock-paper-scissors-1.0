@@ -13,38 +13,51 @@ function getComputerChoice (){
 let roundResult = document.querySelector('.round-result');
 roundResult.textContent = `Hello! Welcome to Rock, Paper, Scissors!`;
 
+let humanScore = 0;
+let computerScore = 0;
+
 let gameScore = document.querySelector('#game-score');
 
-if (rockButton.addEventListener)
-gameScore.textContent = `Hello! Welcome to Rock, Paper, Scissors!`;
+
 
 
 function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    if (playerSelection === computerSelection) {
+    if (humanScore === 5){
+        gameScore.textContent = `Humans triumph over the machines. Final score: ${humanScore} to ${computerScore};`
+    } else if (computerScore === 5) {
+        gameScore.textContent = `The computers have triumphed over the humans. Final score: ${humanScore} to ${computerScore};`
+    } else if (playerSelection === computerSelection) {
         roundResult.textContent = "You tied!";
-        return 0;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         roundResult.textContent = "You lose! Paper beats rock.";
-        return -1;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+        computerScore++;            
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         roundResult.textContent = "You win! Rock beats scissors.";
-        return 1;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+        humanScore++;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         roundResult.textContent = "You win! Paper beats rock.";
-        return 1;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+        humanScore++;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         roundResult.textContent = "You lose! Scissors beat paper.";
-        return -1;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+        computerScore++; 
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         roundResult.textContent = "You lose! Rock beats scissors.";
-        return -1;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+        computerScore++; 
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         roundResult.textContent = "You win! Scissors beat paper.";
-        return 1;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+        humanScore++;
     } else {
         roundResult.textContent = "That wasn't one of the options...";
-        return 0;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
+
     }
 }
 
