@@ -25,35 +25,39 @@ function playRound(playerSelection,computerSelection){
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (humanScore === 5){
         gameScore.textContent = `Humans triumph over the machines. Final score: ${humanScore} to ${computerScore};`
+        humanScore = 0;
+        computerScore = 0;
     } else if (computerScore === 5) {
-        gameScore.textContent = `The computers have triumphed over the humans. Final score: ${humanScore} to ${computerScore};`
+        gameScore.textContent = `The computers have triumphed over the humans. Final score: ${humanScore} to ${computerScore}`;
+        humanScore = 0;
+        computerScore = 0;
     } else if (playerSelection === computerSelection) {
         roundResult.textContent = "You tied!";
         gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Rock" && computerSelection === "Paper") {
         roundResult.textContent = "You lose! Paper beats rock.";
-        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
         computerScore++;            
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
         roundResult.textContent = "You win! Rock beats scissors.";
-        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
         humanScore++;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Paper" && computerSelection === "Rock") {
         roundResult.textContent = "You win! Paper beats rock.";
-        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
         humanScore++;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
         roundResult.textContent = "You lose! Scissors beat paper.";
-        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
         computerScore++; 
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
         roundResult.textContent = "You lose! Rock beats scissors.";
-        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
         computerScore++; 
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
         roundResult.textContent = "You win! Scissors beat paper.";
-        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
         humanScore++;
+        gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
     } else {
         roundResult.textContent = "That wasn't one of the options...";
         gameScore.textContent = `The current score is ${humanScore} to ${computerScore}.`;
